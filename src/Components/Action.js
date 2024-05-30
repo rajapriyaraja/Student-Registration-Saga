@@ -1,104 +1,22 @@
-import axios from 'axios';
-import { GET_REQUEST,POST_REQUEST,FETCH_REQUEST,UPDATE_REQUEST,DELETE_REQUEST } from './Type';
-import { type } from '@testing-library/user-event/dist/type';
+import { CREATE_USER,DELETE_USER,UPDATE_USER,FETCH_ID_USER,FETCH_USER } from "./Type";
 
-export const getDataReq = () => {
-    return {
-      type: GET_REQUEST,
-      payload: data,
-    };
-  };
-  export const getDataSuc = (data) => {
-    console.log(data);
-    return {
-      type: GET_SUCCESS,
-      payload: data,
-    };
-  };
-  export const getDataFail = (data) => {
-    console.log(data);
-    return {
-      type:GET_FAILED,
-      payload: data,
-    };
-  };
-  export const postDataReq=()=>{
-    return{
-         type:POST_REQUEST,
-        payload:data,    
-    };
-  };
-  export const postDataSuc = (data) => {
-    console.log(data);
-    return {
-      type: GET_SUCCESS,
-      payload: data,
-    };
-  };
-  export const postDataFail = (data) => {
-    console.log(data);
-    return {
-      type:GET_FAILED,
-      payload: data,
-    };
-  };
-  export const updateDataReq=()=>{
-    return{
-         type:POST_REQUEST,
-        payload:data,    
-    };
-  };
-  export const updateDataSuc = (data) => {
-    console.log(data);
-    return {
-      type: GET_SUCCESS,
-      payload: data,
-    };
-  };
-  export const updateDataFail = (data) => {
-    console.log(data);
-    return {
-      type:GET_FAILED,
-      payload: data,
-    };
-  };
-  export const deleteDataReq=()=>{
-    return{
-         type:POST_REQUEST,
-        payload:data,    
-    };
-  };
-  export const deleteDataSuc = (data) => {
-    console.log(data);
-    return {
-      type: GET_SUCCESS,
-      payload: data,
-    };
-  };
-  export const deleteDataFail = (data) => {
-    console.log(data);
-    return {
-      type:GET_FAILED,
-      payload: data,
-    };
-  };
-  export const fetchDataReq=()=>{
-    return{
-         type:POST_REQUEST,
-        payload:data,    
-    };
-  };
-  export const fetchDataSuc = (data) => {
-    console.log(data);
-    return {
-      type: GET_SUCCESS,
-      payload: data,
-    };
-  };
-  export const fetchDataFail = (data) => {
-    console.log(data);
-    return {
-      type:GET_FAILED,
-      payload: data,
-    };
-  };
+export const createUser = (user) => ({
+  type: CREATE_USER,
+  payload: user,
+});
+export const updateUser = (user,id) => ({
+  type: UPDATE_USER,
+  payload: user,id,
+});
+export const deleteUser = (id) => ({
+  type: DELETE_USER,
+  payload: id,
+});
+export const fetchUser = (id) => ({
+  type: FETCH_USER,
+  payload: id,
+});
+export const fetchIdUser = () => ({
+  type: FETCH_ID_USER,
+  
+});

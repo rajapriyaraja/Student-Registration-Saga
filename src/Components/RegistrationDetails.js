@@ -2,8 +2,16 @@ import { useState,useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import React from 'react'
+import { fetchUser } from "./Action";
 
 export const RegistrationDetails = () => {
+  const users=useSelector((state)=>state.users);
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
+
+  useEffect(()=>{
+    dispatch(fetchUser());
+  },[dispatch]);
   return (
     <>
     <div>
@@ -19,13 +27,13 @@ export const RegistrationDetails = () => {
             </tr>
         </thead>
         <tbody>
-            {students.map((student) => (
-                <tr key={student.id}>
-                    <td>{student.sname}</td>
-                    <td>{student.roll}</td>
-                    <td>{student.date}</td>
-                    <td>{student.department}</td>
-                    <td>{student.number}</td>
+            {users.map((user) => (
+                <tr key={user.id}>
+                    <td>{user.sname}</td>
+                    <td>{user.roll}</td>
+                    <td>{user.date}</td>
+                    <td>{user.department}</td>
+                    <td>{user.number}</td>
                 </tr>
             ))}
         </tbody>
@@ -34,4 +42,3 @@ export const RegistrationDetails = () => {
     </>
   )
 }
-
