@@ -1,0 +1,1 @@
+export const API_URL="https://65af4d452f26c3f2139a6b3d.mockapi.io/EmployeeRegister/StudentRegistration"
