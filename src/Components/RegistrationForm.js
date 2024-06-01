@@ -1,101 +1,366 @@
+
+// import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { createUser } from './Action';
+// import { useNavigate } from 'react-router-dom';
+
+// export const RegistrationForm = () => {
+//   const [fname, setFname] = useState("");
+//   const [lname, setLname] = useState("");
+//   const [roll, setRoll] = useState("");
+//   const [date, setDate] = useState("");
+//   const [department, setDepartment] = useState("");
+//   const [number, setNumber] = useState("");
+//   const [gender, setGender] = useState("");
+//   const [national, setNational] = useState("");
+
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+
+
+//   const Reset = () => {
+//     setFname("");
+//     setLname("");
+//     setRoll("");
+//     setDate("");
+//     setDepartment("");
+//     setNumber("");
+//     setGender("");
+//     setNational("");
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     dispatch(createUser({
+//       fname, lname, roll, date, department, number, gender, national
+//     }));
+//     navigate('/RegistrationDetails');
+
+//     Reset();
+//   };
+
+//   return (
+//     <div className='container justify-content-center text-center d-grid pt-4'>
+//       <form className='border rounded p-5 bg-secondary' onSubmit={handleSubmit}>
+//         <h3>Student Registration</h3>
+        
+//         <div className='row mb-3'>
+//           <div className='col-md-6 text-start'>
+//             <label >First Name*</label>
+//             <input
+//               className='mt-1 p-2 rounded border-primary w-100'
+//               type='text'
+//               value={fname}
+//               onChange={(e) => setFname(e.target.value)}
+//               placeholder='Enter your first name'
+//             />
+//           </div>
+//           <div className='col-md-6 text-start'>
+//             <label>Last Name*</label>
+//             <input
+//               className='mt-1 p-2 rounded border-primary w-100'
+//               type='text'
+//               value={lname}
+//               onChange={(e) => setLname(e.target.value)}
+//               placeholder='Enter your last name'
+//             />
+//           </div>
+//         </div>
+
+//         <div className='row mb-3'>
+//           <div className='col-md-6 text-start'>
+//             <label>Roll Number</label>
+//             <input
+//               className='mt-1 p-2 rounded border-primary w-100'
+//               type='number'
+//               value={roll}
+//               onChange={(e) => setRoll(e.target.value)}
+//               placeholder='Enter your Roll Number'
+//             />
+//           </div>
+//           <div className='col-md-6 text-start'>
+//             <label>Date of Birth</label>
+//             <input
+//               className='mt-1 p-2 rounded border-primary w-100'
+//               type='date'
+//               value={date}
+//               onChange={(e) => setDate(e.target.value)}
+//               placeholder='Enter your Date of Birth'
+//             />
+//           </div>
+//         </div>
+
+//         <div className='row mb-3'>
+//           <div className='col-md-6 text-start'>
+//             <label>Gender</label>
+//             <div className='mt-1'>
+//               <input
+//                 type='radio'
+//                 className='form-check-input me-2'
+//                 id='radio1'
+//                 name='gender'
+//                 value='Male'
+//                 checked={gender === 'Male'}
+//                 onChange={(e) => setGender(e.target.value)}
+//               />
+//               <label className='form-check-label me-3' htmlFor='radio1'>Male</label>
+//               <input
+//                 type='radio'
+//                 className='form-check-input me-2'
+//                 id='radio2'
+//                 name='gender'
+//                 value='Female'
+//                 checked={gender === 'Female'}
+//                 onChange={(e) => setGender(e.target.value)}
+//               />
+//               <label className='form-check-label' htmlFor='radio2'>Female</label>
+//             </div>
+//           </div>
+//           <div className='col-md-6 text-start'>
+//             <label>Department</label>
+//             <input
+//               className='mt-1 p-2 rounded border-primary w-100'
+//               type='text'
+//               value={department}
+//               onChange={(e) => setDepartment(e.target.value)}
+//               placeholder='Enter your Department'
+//             />
+//           </div>
+//         </div>
+
+//         <div className='row mb-3'>
+//           <div className='col-md-6 text-start'>
+//             <label>Mobile Number</label>
+//             <input
+//               className='mt-1 p-2 rounded border-primary w-100'
+//               type='number'
+//               value={number}
+//               onChange={(e) => setNumber(e.target.value)}
+//               placeholder='Enter your number'
+//             />
+//           </div>
+//           <div className='col-md-6 '>
+//             <label>Nationality</label>
+//             <select
+//               className='mt-1 p-2 rounded border-primary w-100'
+//               value={national}
+//               onChange={(e) => setNational(e.target.value)}
+//             >
+//               <option value="">Select</option>
+//               <option value="Indian">Indian</option>
+//               <option value="Others">Others</option>
+//             </select>
+//           </div>
+//         </div>
+
+//         <div className='mt-4'>
+//           <button
+//             type='button'
+//             className='btn btn-primary'
+//             onClick={Reset}
+//           >
+//             Reset
+//           </button>
+//           <button
+//             type='submit'
+//             className='btn btn-danger ms-3'
+//           >
+//             Submit
+//           </button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createUser } from './Action';
 import { useNavigate } from 'react-router-dom';
 
 export const RegistrationForm = () => {
-  const [sname, setSname] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   const [roll, setRoll] = useState("");
   const [date, setDate] = useState("");
   const [department, setDepartment] = useState("");
   const [number, setNumber] = useState("");
-  const[gender,setGender]=useState("");
+  const [gender, setGender] = useState("");
+  const [national, setNational] = useState("");
+  const [errors, setErrors] = useState({});
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const Reset = () => {
-    setSname("");
+    setFname("");
+    setLname("");
     setRoll("");
     setDate("");
     setDepartment("");
     setNumber("");
     setGender("");
-  }
+    setNational("");
+    setErrors({});
+  };
+
+  const validateInputs = () => {
+    const errors = {};
+
+    if (!fname.trim()) errors.fname = 'Please enter a first name!';
+    if (!lname.trim()) errors.lname = 'Please enter a last name!';
+    if (!roll.trim()) errors.roll = 'Please enter a roll number!';
+    if (!date.trim()) errors.date = 'Please enter a date of birth!';
+    if (!department.trim()) errors.department = 'Please enter a department!';
+    if (!number.trim()) errors.number = 'Please enter a mobile number!';
+    else if (!/^\d{10}$/.test(number)) errors.number = 'Invalid mobile number format!';
+    if (!gender.trim()) errors.gender = 'Please select a gender!';
+    if (!national.trim()) errors.national = 'Please select a nationality!';
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createUser({
-      sname, roll, date, department, number,gender
-    }));
-    navigate('/RegistrationDetails');
-  
-    Reset();
-  }
+    if (validateInputs()) {
+      dispatch(createUser({
+        fname, lname, roll, date, department, number, gender, national
+      }));
+      navigate('/RegistrationDetails');
+      Reset();
+    }
+  };
 
   return (
     <div className='container justify-content-center text-center d-grid pt-4'>
-      <form className='border rounded  p-5 bg-secondary' onSubmit={handleSubmit}>
+      <form className='border rounded p-5' onSubmit={handleSubmit}>
         <h3>Student Registration</h3>
-        <div className='d-grid text-start'>
-          <label>Name</label>
-          <input
-            className='mt-1 p-2 rounded border-primary '
-            type='text'
-            value={sname}
-            onChange={(e) => setSname(e.target.value)}
-            placeholder='Enter your name'
-          />
+        
+        <div className='row mb-3'>
+          <div className='col-md-6 text-start'>
+            <label>First Name*</label>
+            <input
+              className='mt-1 p-2 rounded border-primary w-100'
+              type='text'
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+              placeholder='Enter your first name'
+            />
+            {errors.fname && <p className="text-danger">{errors.fname}</p>}
+          </div>
+          <div className='col-md-6 text-start'>
+            <label>Last Name*</label>
+            <input
+              className='mt-1 p-2 rounded border-primary w-100'
+              type='text'
+              value={lname}
+              onChange={(e) => setLname(e.target.value)}
+              placeholder='Enter your last name'
+            />
+            {errors.lname && <p className="text-danger">{errors.lname}</p>}
+          </div>
         </div>
-        <div className='d-grid mt-2 text-start '>
-          <label>Roll Number</label>
-          <input
-            className='mt-1 p-2  rounded border-primary'
-            type='number'
-            value={roll}
-            onChange={(e) => setRoll(e.target.value)}
-            placeholder='Enter your Roll Number'
-          />
+
+        <div className='row mb-3'>
+          <div className='col-md-6 text-start'>
+            <label>Roll Number</label>
+            <input
+              className='mt-1 p-2 rounded border-primary w-100'
+              type='number'
+              value={roll}
+              onChange={(e) => setRoll(e.target.value)}
+              placeholder='Enter your Roll Number'
+            />
+            {errors.roll && <p className="text-danger">{errors.roll}</p>}
+          </div>
+          <div className='col-md-6 text-start'>
+            <label>Date of Birth</label>
+            <input
+              className='mt-1 p-2 rounded border-primary w-100'
+              type='date'
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              placeholder='Enter your Date of Birth'
+            />
+            {errors.date && <p className="text-danger">{errors.date}</p>}
+          </div>
         </div>
-        {/* <div  className='d-grid mt-2 text-start'>
-          <label>Gender</label>
-          <input
-          className='mt-1 p-2  rounded border-primary'
-          type='text'
-          value={gender}
-          onChange={(e)=>setGender(e.target.value)}
-          placeholder='Select any one'/>
-        </div> */}
-        <div className='d-grid mt-2 text-start'>
-          <label>Date of Birth</label>
-          <input
-            className='mt-1 p-2 rounded border-primary'
-            type='date'
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            placeholder='Enter your Date of Birth'
-          />
+
+        <div className='row mb-3'>
+          <div className='col-md-6 text-start'>
+            <label>Gender</label>
+            <div className='mt-1'>
+              <input
+                type='radio'
+                className='form-check-input me-2'
+                id='radio1'
+                name='gender'
+                value='Male'
+                checked={gender === 'Male'}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              <label className='form-check-label me-3' htmlFor='radio1'>Male</label>
+              <input
+                type='radio'
+                className='form-check-input me-2'
+                id='radio2'
+                name='gender'
+                value='Female'
+                checked={gender === 'Female'}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              <label className='form-check-label' htmlFor='radio2'>Female</label>
+            </div>
+            {errors.gender && <p className="text-danger">{errors.gender}</p>}
+          </div>
+          <div className='col-md-6 text-start'>
+            <label>Department</label>
+            <input
+              className='mt-1 p-2 rounded border-primary w-100'
+              type='text'
+              value={department}
+              onChange={(e) => setDepartment(e.target.value)}
+              placeholder='Enter your Department'
+            />
+            {errors.department && <p className="text-danger">{errors.department}</p>}
+          </div>
         </div>
-        <div className='d-grid mt-2 text-start'>
-          <label>Department</label>
-          <input
-            className='mt-1 p-2  rounded border-primary'
-            type='text'
-            value={department}
-            onChange={(e) => setDepartment(e.target.value)}
-            placeholder='Enter your Department'
-          />
+
+        <div className='row mb-3'>
+          <div className='col-md-6 text-start'>
+            <label>Mobile Number</label>
+            <input
+              className='mt-1 p-2 rounded border-primary w-100'
+              type='number'
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+              placeholder='Enter your number'
+            />
+            {errors.number && <p className="text-danger">{errors.number}</p>}
+          </div>
+          <div className='col-md-6 text-start'>
+            <label>Nationality</label>
+            <select
+              className='mt-1 p-2 rounded border-primary w-100'
+              value={national}
+              onChange={(e) => setNational(e.target.value)}
+            >
+              <option value="">Select</option>
+              <option value="Indian">Indian</option>
+              <option value="Others">Others</option>
+            </select>
+            {errors.national && <p className="text-danger">{errors.national}</p>}
+          </div>
         </div>
-        <div className='d-grid text-start mt-2'>
-          <label>Mobile Number</label>
-          <input
-            className='mt-1 p-2  rounded border-primary'
-            type='number'
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            placeholder='Enter your number'
-          />
-        </div>
+
         <div className='mt-4'>
           <button
             type='button'
