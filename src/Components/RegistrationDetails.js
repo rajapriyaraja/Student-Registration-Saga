@@ -18,8 +18,8 @@ export const RegistrationDetails = () => {
   };
 
   const handleEdit = (user) => {
-    // Navigate to the edit form with user data
-    navigate(`/edit/${user.id}`, { state: { user } });
+
+    navigate(`/FormEdit/${user.id}`, { state: { user } });
   };
 
   return (
@@ -28,7 +28,7 @@ export const RegistrationDetails = () => {
         <h2>Registration Details</h2>
       </div>
       <div className="d-flex justify-content-center">
-        <table className="table table-striped table-bordered w-75 mt-3">
+        <table className="table table-striped table-bordered text-center  mt-3">
           <thead className="thead-dark">
             <tr>
               <th>First Name</th>
@@ -53,20 +53,22 @@ export const RegistrationDetails = () => {
                 <td>{user.department}</td>
                 <td>{user.number}</td>
                 <td>{user.national}</td>
-                <td>
-                  <button 
-                    className="btn btn-danger btn-sm me-2"
-                    onClick={() => handleDelete(user.id)}
-                  >
-                    Delete
-                  </button>
-                  <button 
-                    className="btn btn-primary btn-sm"
-                    onClick={() => handleEdit(user)}
-                  >
-                    Edit
-                  </button>
-                </td>
+                <div className=" justify-content-center d-flex">
+                  <td>
+                    <button
+                      className="btn btn-danger btn-sm me-2"
+                      onClick={() => handleDelete(user.id)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="btn btn-primary btn-sm"
+                      onClick={() => handleEdit(user)}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </div>
               </tr>
             ))}
           </tbody>

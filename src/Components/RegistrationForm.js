@@ -1,185 +1,3 @@
-
-// import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { createUser } from './Action';
-// import { useNavigate } from 'react-router-dom';
-
-// export const RegistrationForm = () => {
-//   const [fname, setFname] = useState("");
-//   const [lname, setLname] = useState("");
-//   const [roll, setRoll] = useState("");
-//   const [date, setDate] = useState("");
-//   const [department, setDepartment] = useState("");
-//   const [number, setNumber] = useState("");
-//   const [gender, setGender] = useState("");
-//   const [national, setNational] = useState("");
-
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-
-
-//   const Reset = () => {
-//     setFname("");
-//     setLname("");
-//     setRoll("");
-//     setDate("");
-//     setDepartment("");
-//     setNumber("");
-//     setGender("");
-//     setNational("");
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     dispatch(createUser({
-//       fname, lname, roll, date, department, number, gender, national
-//     }));
-//     navigate('/RegistrationDetails');
-
-//     Reset();
-//   };
-
-//   return (
-//     <div className='container justify-content-center text-center d-grid pt-4'>
-//       <form className='border rounded p-5 bg-secondary' onSubmit={handleSubmit}>
-//         <h3>Student Registration</h3>
-        
-//         <div className='row mb-3'>
-//           <div className='col-md-6 text-start'>
-//             <label >First Name*</label>
-//             <input
-//               className='mt-1 p-2 rounded border-primary w-100'
-//               type='text'
-//               value={fname}
-//               onChange={(e) => setFname(e.target.value)}
-//               placeholder='Enter your first name'
-//             />
-//           </div>
-//           <div className='col-md-6 text-start'>
-//             <label>Last Name*</label>
-//             <input
-//               className='mt-1 p-2 rounded border-primary w-100'
-//               type='text'
-//               value={lname}
-//               onChange={(e) => setLname(e.target.value)}
-//               placeholder='Enter your last name'
-//             />
-//           </div>
-//         </div>
-
-//         <div className='row mb-3'>
-//           <div className='col-md-6 text-start'>
-//             <label>Roll Number</label>
-//             <input
-//               className='mt-1 p-2 rounded border-primary w-100'
-//               type='number'
-//               value={roll}
-//               onChange={(e) => setRoll(e.target.value)}
-//               placeholder='Enter your Roll Number'
-//             />
-//           </div>
-//           <div className='col-md-6 text-start'>
-//             <label>Date of Birth</label>
-//             <input
-//               className='mt-1 p-2 rounded border-primary w-100'
-//               type='date'
-//               value={date}
-//               onChange={(e) => setDate(e.target.value)}
-//               placeholder='Enter your Date of Birth'
-//             />
-//           </div>
-//         </div>
-
-//         <div className='row mb-3'>
-//           <div className='col-md-6 text-start'>
-//             <label>Gender</label>
-//             <div className='mt-1'>
-//               <input
-//                 type='radio'
-//                 className='form-check-input me-2'
-//                 id='radio1'
-//                 name='gender'
-//                 value='Male'
-//                 checked={gender === 'Male'}
-//                 onChange={(e) => setGender(e.target.value)}
-//               />
-//               <label className='form-check-label me-3' htmlFor='radio1'>Male</label>
-//               <input
-//                 type='radio'
-//                 className='form-check-input me-2'
-//                 id='radio2'
-//                 name='gender'
-//                 value='Female'
-//                 checked={gender === 'Female'}
-//                 onChange={(e) => setGender(e.target.value)}
-//               />
-//               <label className='form-check-label' htmlFor='radio2'>Female</label>
-//             </div>
-//           </div>
-//           <div className='col-md-6 text-start'>
-//             <label>Department</label>
-//             <input
-//               className='mt-1 p-2 rounded border-primary w-100'
-//               type='text'
-//               value={department}
-//               onChange={(e) => setDepartment(e.target.value)}
-//               placeholder='Enter your Department'
-//             />
-//           </div>
-//         </div>
-
-//         <div className='row mb-3'>
-//           <div className='col-md-6 text-start'>
-//             <label>Mobile Number</label>
-//             <input
-//               className='mt-1 p-2 rounded border-primary w-100'
-//               type='number'
-//               value={number}
-//               onChange={(e) => setNumber(e.target.value)}
-//               placeholder='Enter your number'
-//             />
-//           </div>
-//           <div className='col-md-6 '>
-//             <label>Nationality</label>
-//             <select
-//               className='mt-1 p-2 rounded border-primary w-100'
-//               value={national}
-//               onChange={(e) => setNational(e.target.value)}
-//             >
-//               <option value="">Select</option>
-//               <option value="Indian">Indian</option>
-//               <option value="Others">Others</option>
-//             </select>
-//           </div>
-//         </div>
-
-//         <div className='mt-4'>
-//           <button
-//             type='button'
-//             className='btn btn-primary'
-//             onClick={Reset}
-//           >
-//             Reset
-//           </button>
-//           <button
-//             type='submit'
-//             className='btn btn-danger ms-3'
-//           >
-//             Submit
-//           </button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createUser } from './Action';
@@ -195,6 +13,7 @@ export const RegistrationForm = () => {
   const [gender, setGender] = useState("");
   const [national, setNational] = useState("");
   const [errors, setErrors] = useState({});
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -227,28 +46,27 @@ export const RegistrationForm = () => {
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateInputs()) {
       dispatch(createUser({
         fname, lname, roll, date, department, number, gender, national
-      }));
+      }))
       navigate('/RegistrationDetails');
       Reset();
     }
   };
 
   return (
-    <div className='container justify-content-center text-center d-grid pt-4'>
-      <form className='border rounded p-5' onSubmit={handleSubmit}>
-        <h3>Student Registration</h3>
-        
+    <div className='container justify-content-center text-center d-grid mt-5  '>
+      <form className='border rounded p-4  ' onSubmit={handleSubmit}>
+        <h3 className='mb-3'>Student Registration</h3>
+
         <div className='row mb-3'>
           <div className='col-md-6 text-start'>
             <label>First Name*</label>
             <input
-              className='mt-1 p-2 rounded border-primary w-100'
+              className='mt-1 p-2 rounded w-100 form-control '
               type='text'
               value={fname}
               onChange={(e) => setFname(e.target.value)}
@@ -259,7 +77,7 @@ export const RegistrationForm = () => {
           <div className='col-md-6 text-start'>
             <label>Last Name*</label>
             <input
-              className='mt-1 p-2 rounded border-primary w-100'
+              className='mt-1 p-2 rounded  w-100 form-control '
               type='text'
               value={lname}
               onChange={(e) => setLname(e.target.value)}
@@ -273,7 +91,7 @@ export const RegistrationForm = () => {
           <div className='col-md-6 text-start'>
             <label>Roll Number</label>
             <input
-              className='mt-1 p-2 rounded border-primary w-100'
+              className='mt-1 p-2 rounded form-control  w-100'
               type='number'
               value={roll}
               onChange={(e) => setRoll(e.target.value)}
@@ -284,7 +102,7 @@ export const RegistrationForm = () => {
           <div className='col-md-6 text-start'>
             <label>Date of Birth</label>
             <input
-              className='mt-1 p-2 rounded border-primary w-100'
+              className='mt-1 p-2 rounded form-control  w-100'
               type='date'
               value={date}
               onChange={(e) => setDate(e.target.value)}
@@ -300,7 +118,7 @@ export const RegistrationForm = () => {
             <div className='mt-1'>
               <input
                 type='radio'
-                className='form-check-input me-2'
+                className='form-check-input me-2 '
                 id='radio1'
                 name='gender'
                 value='Male'
@@ -324,7 +142,7 @@ export const RegistrationForm = () => {
           <div className='col-md-6 text-start'>
             <label>Department</label>
             <input
-              className='mt-1 p-2 rounded border-primary w-100'
+              className='mt-1 p-2 rounded form-control  w-100'
               type='text'
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
@@ -338,7 +156,7 @@ export const RegistrationForm = () => {
           <div className='col-md-6 text-start'>
             <label>Mobile Number</label>
             <input
-              className='mt-1 p-2 rounded border-primary w-100'
+              className='mt-1 p-2 rounded form-control  w-100'
               type='number'
               value={number}
               onChange={(e) => setNumber(e.target.value)}
@@ -349,7 +167,7 @@ export const RegistrationForm = () => {
           <div className='col-md-6 text-start'>
             <label>Nationality</label>
             <select
-              className='mt-1 p-2 rounded border-primary w-100'
+              className='mt-1 p-2 rounded form-control  w-100'
               value={national}
               onChange={(e) => setNational(e.target.value)}
             >
